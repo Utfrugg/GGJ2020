@@ -20,6 +20,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<PlayerInteraction>().UpdateTarget(transform.position, new Vector2(0, 1));
     }
 }

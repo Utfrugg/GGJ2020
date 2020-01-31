@@ -16,10 +16,13 @@ public class PlayerInteraction : MonoBehaviour
         interactableFilter.layerMask = LayerMask.NameToLayer("Interactable");
     }
 
-    void UpdateTarget(Vector2 playerPos, Vector2 forwardVector)
+    public void UpdateTarget(Vector2 playerPos, Vector2 forwardVector)
     {
         List<Collider2D> foundInteractables = new List<Collider2D>();
         Physics2D.OverlapCircle(playerPos, interactionRange, interactableFilter, foundInteractables);
+        if (target != null)
+        target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        target = null;
         float shortestDistance = Mathf.Infinity;
 
         foreach (Collider2D coll in foundInteractables)
@@ -35,9 +38,16 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
+        if (target != null)
+        {
+            Debug.Log("boffe");
+            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        }
     }
 
-    void OnInteractPress() {
+    public void OnInteractPress() {
         target.OnInteract();
     }
+
+    
 }
