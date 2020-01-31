@@ -35,5 +35,12 @@ public class PlayerMovement : MonoBehaviour
     { 
 
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            float angle = Mathf.Atan2(-horizontal, vertical) * Mathf.Rad2Deg;
+            body.SetRotation(angle);
+        }
+
     }
 }
