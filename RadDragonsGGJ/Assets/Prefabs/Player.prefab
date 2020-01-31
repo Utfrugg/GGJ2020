@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7164464576959730868}
   - component: {fileID: 7164464576959730869}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7164464576959730879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02bc8dd5438f0b349a4bdb82d4a8bdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 10
 --- !u!114 &7164464576959730868
 MonoBehaviour:
   m_ObjectHideFlags: 0

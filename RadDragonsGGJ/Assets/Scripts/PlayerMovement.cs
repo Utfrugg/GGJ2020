@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal" + playerNumber);
         vertical = Input.GetAxisRaw("Vertical" + playerNumber);
 
-        if (Input.GetKeyDown("Joystick " + playerNumber + " button 0"))
+        if (Input.GetKeyDown("joystick " + playerNumber + " button 0"))
         {
             Debug.Log("pickup");
         }
