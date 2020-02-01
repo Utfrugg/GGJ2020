@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
        interactableFilter.SetLayerMask(layer);
     }
 
-    public void UpdateTarget(Vector2 playerPos, Vector2 forwardVector)
+    public void UpdateTarget(Vector2 playerPos)
     {
         List<Collider2D> foundInteractables = new List<Collider2D>();
         Physics2D.OverlapCircle(playerPos, interactionRange, interactableFilter, foundInteractables);
@@ -31,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
             if (coll.GetComponent<Interactable>().canTarget)
             {
                 Vector2 toInteractable = coll.transform.position - transform.position;
-                if (Vector2.Dot(forwardVector, toInteractable) > 0)
+                if (Vector2.Dot(transform.up, toInteractable) > 0)
                 {
                     float sqrDistance = toInteractable.sqrMagnitude;
                     if (sqrDistance < shortestDistance)
