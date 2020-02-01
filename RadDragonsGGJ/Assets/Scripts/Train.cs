@@ -27,6 +27,7 @@ public class Train : MonoBehaviour
         get { return instance;  }
     }
 
+    [SerializeField] private Canvas uiCanvas;
 
     public List<PlayerController> players;
     public List<Interactable> interactables;
@@ -129,7 +130,7 @@ public class Train : MonoBehaviour
         else
         {
             Debug.Log("WIN!");
-            //TODO winscreen
+            uiCanvas.transform.Find("WinScreen").gameObject.SetActive(true);
         }
     }
 
@@ -175,8 +176,10 @@ public class Train : MonoBehaviour
             players[3].dead)
         {
             Debug.Log("LOSE");
+            uiCanvas.transform.Find("LoseScreen").gameObject.SetActive(true);
+            
             return;
-            //Show Lose Screens
+            
         }
 
         int brokenparts = 0;
@@ -191,6 +194,7 @@ public class Train : MonoBehaviour
         if (brokenparts >= maxBrokenParts)
         {
             Debug.Log("LOSE");
+            uiCanvas.transform.Find("LoseScreen").gameObject.SetActive(true);
             //Show Lose Screens
         }
     }
