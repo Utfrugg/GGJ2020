@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Interactable : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public virtual void OnInteract()
+    public virtual void OnInteract(Interactable itemUsed, bool holding = false)
     {
 
     }
@@ -27,7 +28,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public bool OnPickup()
+    public virtual bool OnPickup()
     {
         if (canPickup)
         {
@@ -39,7 +40,7 @@ public class Interactable : MonoBehaviour
         return false;
     }
 
-    public void OnDrop()
+    public virtual void OnDrop()
     {
         canTarget = true;
         canPickup = true;
