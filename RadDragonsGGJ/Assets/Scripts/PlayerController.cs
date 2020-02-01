@@ -69,8 +69,11 @@ public class PlayerController : MonoBehaviour
     {
         dead = true;
         GetComponent<PlayerMovement>().canMove = false;
-        GetComponent<SpriteRenderer>().color = Color.red;
-        GetComponent<PlayerInteraction>().pickup.OnDrop();
-        GetComponent<PlayerInteraction>().pickup = null;
+        transform.Find("Character").GetComponent<SpriteRenderer>().color = Color.red;
+        if (GetComponent<PlayerInteraction>().pickup != null)
+        {
+            GetComponent<PlayerInteraction>().pickup.OnDrop();
+            GetComponent<PlayerInteraction>().pickup = null;
+        }
     }
 }
