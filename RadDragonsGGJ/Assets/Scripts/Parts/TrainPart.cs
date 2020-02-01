@@ -22,6 +22,7 @@ public class TrainPart : Interactable
 
     void Start()
     {
+        Train.Instance.trainParts.Add(this);
         UpdateBars();
     }
 
