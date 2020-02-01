@@ -19,7 +19,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void OnInteract()
     {
-        Debug.Log("Hey I got interacted with");
+
     }
 
     public bool OnPickup()

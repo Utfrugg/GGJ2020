@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
+            Debug.Log("mlem");
             GetComponent<PlayerInteraction>().OnInteractPress();
         }
     }

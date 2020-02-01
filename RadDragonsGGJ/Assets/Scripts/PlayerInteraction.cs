@@ -57,12 +57,18 @@ public class PlayerInteraction : MonoBehaviour
         
     }
 
-    public void OnInteractPress() {
+    public void OnInteractPress()
+    {
         if (target != null)
         {
-            target.OnInteract();
+            var array = target.GetComponents<Interactable>();
+            
+            foreach (var comp in array)
+            {
+                Debug.Log(comp.GetType().Name);
+                comp.OnInteract();
+            }
         }
-       
     }
 
     public void OnPickupPress()
