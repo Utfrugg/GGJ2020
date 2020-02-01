@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
        interactableFilter.SetLayerMask(layer);
     }
 
-    public void UpdateTarget(Vector2 playerPos, Vector2 forwardVector)
+    public void UpdateTarget(Vector2 playerPos)
     {
         List<Collider2D> foundInteractables = new List<Collider2D>();
         Physics2D.OverlapCircle(playerPos, interactionRange, interactableFilter, foundInteractables);
@@ -31,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
             if (coll.GetComponent<Interactable>().canTarget)
             {
                 Vector2 toInteractable = coll.transform.position - transform.position;
-                if (Vector2.Dot(forwardVector, toInteractable) > 0)
+                if (Vector2.Dot(transform.up, toInteractable) > 0)
                 {
                     float sqrDistance = toInteractable.sqrMagnitude;
                     if (sqrDistance < shortestDistance)
@@ -51,17 +51,42 @@ public class PlayerInteraction : MonoBehaviour
     void FixedUpdate()
     {
         if (pickup != null)
-        pickup.transform.position = transform.position;
+        {
+            pickup.transform.position = transform.position;
+            pickup.transform.rotation = transform.rotation;
+        }
+        
     }
 
-    public void OnInteractPress() {
+    public void OnInteractPress()
+    {
         if (target != null)
-        target.OnInteract();
+        {
+            var array = target.GetComponents<Interactable>();
+            
+            foreach (var comp in array)
+            {
+                Debug.Log(comp.GetType().Name);
+                comp.OnInteract();
+            }
+        }
+
+        if (pickup != null)
+        {
+            var array = pickup.GetComponents<Interactable>();
+
+            foreach (var comp in array)
+            {
+                Debug.Log(comp.GetType().Name);
+                comp.OnUse();
+            }
+        }
     }
 
     public void OnPickupPress()
     {
-        if (pickup != null) {
+        if (pickup != null)
+        {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
             pickup.OnDrop();
             pickup = null;

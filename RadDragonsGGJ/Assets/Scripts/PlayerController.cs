@@ -20,11 +20,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<PlayerInteraction>().UpdateTarget(transform.position, new Vector2(0, 1));
+        GetComponent<PlayerInteraction>().UpdateTarget(transform.position);
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0"))
         {
             GetComponent<PlayerInteraction>().OnPickupPress();
         }
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
+        {
+            Debug.Log("mlem");
+            GetComponent<PlayerInteraction>().OnInteractPress();
+        }
+
+        //Debug.DrawLine(transform.position, transform.position + transform.up, Color.red, 0.1f);
     }
 }

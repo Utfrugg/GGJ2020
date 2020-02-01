@@ -15,11 +15,16 @@ public class Interactable : MonoBehaviour
     void Update()
     {
 
-            }
+    }
 
     public virtual void OnInteract()
     {
-        Debug.Log("Hey I got interacted with");
+
+    }
+
+    public virtual void OnUse()
+    {
+
     }
 
     public bool OnPickup()
