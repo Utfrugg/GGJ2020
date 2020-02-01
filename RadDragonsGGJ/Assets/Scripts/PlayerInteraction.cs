@@ -51,17 +51,24 @@ public class PlayerInteraction : MonoBehaviour
     void FixedUpdate()
     {
         if (pickup != null)
-        pickup.transform.position = transform.position;
+        {
+            pickup.transform.position = transform.position;
+        }
+        
     }
 
     public void OnInteractPress() {
         if (target != null)
-        target.OnInteract();
+        {
+            target.OnInteract();
+        }
+       
     }
 
     public void OnPickupPress()
     {
-        if (pickup != null) {
+        if (pickup != null)
+        {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
             pickup.OnDrop();
             pickup = null;

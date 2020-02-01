@@ -15,7 +15,7 @@ public class Interactable : MonoBehaviour
     void Update()
     {
 
-            }
+    }
 
     public virtual void OnInteract()
     {

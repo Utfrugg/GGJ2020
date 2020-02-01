@@ -26,5 +26,9 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<PlayerInteraction>().OnPickupPress();
         }
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
+        {
+            GetComponent<PlayerInteraction>().OnInteractPress();
+        }
     }
 }
