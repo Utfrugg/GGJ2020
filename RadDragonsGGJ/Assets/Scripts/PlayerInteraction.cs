@@ -7,10 +7,12 @@ public class PlayerInteraction : MonoBehaviour
     public float interactionRange = 10;
 
     private bool isInteracting = false;
+    public bool isHoldingButton = false;
     private Interactable target;
     private Interactable pickup;
     ContactFilter2D interactableFilter;
     public LayerMask layer;
+
     void Start()
     {
        interactableFilter = new ContactFilter2D();
@@ -22,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour
         List<Collider2D> foundInteractables = new List<Collider2D>();
         Physics2D.OverlapCircle(playerPos, interactionRange, interactableFilter, foundInteractables);
         if (target != null)
-        target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         target = null;
         float shortestDistance = Mathf.Infinity;
 
@@ -48,14 +50,35 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (pickup != null)
         {
-            pickup.transform.position = transform.position;
+            pickup.transform.position = transform.position + transform.up;
             pickup.transform.rotation = transform.rotation;
         }
-        
+
+        if (target != null && isHoldingButton)
+        {
+            var array = target.GetComponents<Interactable>();
+
+            foreach (var comp in array)
+            {
+                comp.OnInteract(pickup, true);
+            }
+        }
+
+        if (pickup != null && isHoldingButton)
+        {
+            var array = pickup.GetComponents<Interactable>();
+
+            foreach (var comp in array)
+            {
+                Debug.Log(comp.GetType().Name);
+                comp.OnUse();
+            }
+        }
+
     }
 
     public void OnInteractPress()
@@ -67,7 +90,7 @@ public class PlayerInteraction : MonoBehaviour
             foreach (var comp in array)
             {
                 Debug.Log(comp.GetType().Name);
-                comp.OnInteract();
+                comp.OnInteract(pickup);
             }
         }
 

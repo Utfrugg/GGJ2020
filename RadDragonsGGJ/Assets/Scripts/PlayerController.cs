@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public int PlayerNumber = 0;
-
+    bool buttonHeld = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +28,13 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
-            Debug.Log("mlem");
             GetComponent<PlayerInteraction>().OnInteractPress();
+            GetComponent<PlayerInteraction>().isHoldingButton = true;
         }
-
+        if (Input.GetKeyUp("joystick " + PlayerNumber + " button 2"))
+        {
+            GetComponent<PlayerInteraction>().isHoldingButton = false;
+        }
         //Debug.DrawLine(transform.position, transform.position + transform.up, Color.red, 0.1f);
     }
 }
