@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canTarget: 1
-  canPickup: 0
+  canPickup: 1
 --- !u!50 &4436229540655202662
 Rigidbody2D:
   serializedVersion: 4
