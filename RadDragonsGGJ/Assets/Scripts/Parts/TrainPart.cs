@@ -31,11 +31,13 @@ public class TrainPart : Interactable
     private float DousePerSecond;
     private float HealthPerHammerHit;
 
+    TutorialIcons tutorialIcons;
+
     void Start()
     {
         Train.Instance.trainParts.Add(this);
         UpdateBars();
-
+        tutorialIcons = GetComponent<TutorialIcons>();
         BurnPerSecond = 1.0f / TimeToBurn;
         DamagePerSecond = 1.0f / TimeToBreak;
         DousePerSecond = 1.0f / TimeToDouse + BurnPerSecond;
@@ -86,17 +88,22 @@ public class TrainPart : Interactable
 
     private void SwitchState(PartState newState)
     {
+        tutorialIcons.DisableIcons();
+
         switch (newState)
         {
             case PartState.GOOD:
                 break;
             case PartState.WARMINGUP:
+                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.COOL);
                 break;
             case PartState.BURNING:
+                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.EXTINGUISH);
                 heatbarRenderer.color = new Color(1, 0, 0, 1);
                 break;
             case PartState.BROKEN:
-                    heat = 0;
+                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.HAMMER);
+                heat = 0;
                 break;
         }
         currentState = newState;
