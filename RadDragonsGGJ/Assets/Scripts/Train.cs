@@ -125,6 +125,11 @@ public class Train : MonoBehaviour
         {
             ProcessPhase(phases.Dequeue());
         }
+        else
+        {
+            Debug.Log("WIN!");
+            //TODO winscreen
+        }
     }
 
     private void ProcessPhase(Phase phase)
