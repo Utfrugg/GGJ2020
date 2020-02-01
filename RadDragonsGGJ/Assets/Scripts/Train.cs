@@ -142,13 +142,13 @@ public class Train : MonoBehaviour
         switch (trainPart.currentState)
         {
             case PartState.GOOD:
-                trainPart.currentState = PartState.WARMINGUP;
+                trainPart.SwitchState(PartState.WARMINGUP);
                 break;
             case PartState.WARMINGUP:
-                trainPart.currentState = PartState.BURNING;
+                trainPart.SwitchState(PartState.BURNING);
                 break;
             case PartState.BURNING:
-                trainPart.currentState = PartState.BROKEN;
+                trainPart.SwitchState(PartState.BROKEN);
                 break;
             default:
                 Debug.Log("Part is broken already");
