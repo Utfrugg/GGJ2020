@@ -8,12 +8,13 @@ public class PlayerInteraction : MonoBehaviour
 
     private bool isInteracting = false;
     private Interactable target;
+    private Interactable pickup;
     ContactFilter2D interactableFilter;
-
+    public LayerMask layer;
     void Start()
     {
-        interactableFilter = new ContactFilter2D();
-        interactableFilter.layerMask = LayerMask.NameToLayer("Interactable");
+       interactableFilter = new ContactFilter2D();
+       interactableFilter.SetLayerMask(layer);
     }
 
     public void UpdateTarget(Vector2 playerPos, Vector2 forwardVector)
@@ -27,27 +28,51 @@ public class PlayerInteraction : MonoBehaviour
 
         foreach (Collider2D coll in foundInteractables)
         {
-            Vector2 toInteractable = coll.transform.position - transform.position;
-            if (Vector2.Dot(forwardVector, toInteractable) > 0)
+            if (coll.GetComponent<Interactable>().canTarget)
             {
-                float sqrDistance = toInteractable.sqrMagnitude;
-                if (sqrDistance < shortestDistance)
+                Vector2 toInteractable = coll.transform.position - transform.position;
+                if (Vector2.Dot(forwardVector, toInteractable) > 0)
                 {
-                    shortestDistance = sqrDistance;
-                    target = coll.GetComponent<Interactable>();
+                    float sqrDistance = toInteractable.sqrMagnitude;
+                    if (sqrDistance < shortestDistance)
+                    {
+                        shortestDistance = sqrDistance;
+                        target = coll.GetComponent<Interactable>();
+                    }
                 }
             }
         }
         if (target != null)
         {
-            Debug.Log("boffe");
-            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         }
     }
 
+    void FixedUpdate()
+    {
+        if (pickup != null)
+        pickup.transform.position = transform.position;
+    }
+
     public void OnInteractPress() {
+        if (target != null)
         target.OnInteract();
     }
 
-    
+    public void OnPickupPress()
+    {
+        if (pickup != null) {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
+            pickup.OnDrop();
+            pickup = null;
+        }
+        else if (target != null)
+        {
+            if (target.OnPickup())
+            {
+                pickup = target;
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), true);
+            }
+        }
+    }
 }

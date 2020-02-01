@@ -21,5 +21,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetComponent<PlayerInteraction>().UpdateTarget(transform.position, new Vector2(0, 1));
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0"))
+        {
+            GetComponent<PlayerInteraction>().OnPickupPress();
+        }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public bool canTarget = true;
+    public bool canPickup = false;
+
     void Start()
     {
         
@@ -11,11 +14,29 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        
-    }
 
-    public void OnInteract()
+            }
+
+    public virtual void OnInteract()
     {
         Debug.Log("Hey I got interacted with");
+    }
+
+    public bool OnPickup()
+    {
+        if (canPickup)
+        {
+            canTarget = false;
+            canPickup = false;
+
+            return true;
+        }
+        return false;
+    }
+
+    public void OnDrop()
+    {
+        canTarget = true;
+        canPickup = true;
     }
 }
