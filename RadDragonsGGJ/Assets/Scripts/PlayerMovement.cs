@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 20.0f;
 
+    public bool canMove { get; set; } = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,25 +24,30 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal" + playerNumber);
-        vertical = Input.GetAxisRaw("Vertical" + playerNumber);
-
-        if (Input.GetKeyDown("joystick " + playerNumber + " button 0"))
+        if (canMove)
         {
-            Debug.Log("pickup");
+            horizontal = Input.GetAxisRaw("Horizontal" + playerNumber);
+            vertical = Input.GetAxisRaw("Vertical" + playerNumber);
+
+            if (Input.GetKeyDown("joystick " + playerNumber + " button 0"))
+            {
+                Debug.Log("pickup");
+            }
         }
+
     }
 
     void FixedUpdate()
-    { 
-
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-
-        if (horizontal != 0 || vertical != 0)
+    {
+        if (canMove)
         {
-            float angle = Mathf.Atan2(-horizontal, vertical) * Mathf.Rad2Deg;
-            body.SetRotation(angle);
-        }
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 
+            if (!Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(vertical, 0.0f))
+            {
+                float angle = Mathf.Atan2(-horizontal, vertical) * Mathf.Rad2Deg;
+                body.SetRotation(angle);
+            }
+        }
     }
 }

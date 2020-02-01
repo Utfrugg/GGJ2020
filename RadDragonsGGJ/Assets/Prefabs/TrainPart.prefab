@@ -689,10 +689,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 0
+  currentState: 0
   healthbar: {fileID: 2481296205721526650}
   heatbar: {fileID: 4073291643395872300}
-  heat: 0
-  health: 1
+  TimeToBurn: 3
+  TimeToBreak: 3
+  TimeToDouse: 1.5
+  HitsToRepair: 6
 --- !u!61 &7211980803658534796
 BoxCollider2D:
   m_ObjectHideFlags: 0

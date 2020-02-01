@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extinguisher : Interactable
+public class Hammer : Interactable
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
-        Debug.Log("DIE FLAME!");
+        Debug.Log("HAMMA");
     }
 }
