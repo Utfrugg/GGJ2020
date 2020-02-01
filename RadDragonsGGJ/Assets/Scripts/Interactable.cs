@@ -9,12 +9,12 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        
+        OnStart();
     }
 
-    void Update()
+    public virtual void OnStart()
     {
-
+        Train.Instance.interactables.Add(this);
     }
 
     public virtual void OnInteract()
