@@ -108,7 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02bc8dd5438f0b349a4bdb82d4a8bdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 10
+  interactionRange: 2
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &7164464576959730868
 MonoBehaviour:
   m_ObjectHideFlags: 0
