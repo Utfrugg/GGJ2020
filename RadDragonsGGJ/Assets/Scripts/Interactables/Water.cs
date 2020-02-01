@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Water : Interactable
 {
+    public GameObject splashPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Water : Interactable
 
     public override void OnInteract()
     {
-        Debug.Log("Splash");
+        Instantiate(splashPrefab, transform);
+        splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x,this.transform.forward.z) * 3.0f);
     }
 }
