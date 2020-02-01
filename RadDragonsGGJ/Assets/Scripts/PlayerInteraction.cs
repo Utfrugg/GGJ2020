@@ -123,9 +123,10 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (target != null)
             {
-                if (target.OnPickup())
+                Interactable newPickup = target.OnPickup();
+                if (newPickup != null)
                 {
-                    pickup = target;
+                    pickup = newPickup;
                     Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), true);
                 }
             }

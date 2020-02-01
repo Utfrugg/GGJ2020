@@ -86,7 +86,7 @@ public class TrainPart : Interactable
         healthbar.SetSize(health);
     }
 
-    private void SwitchState(PartState newState)
+    public void SwitchState(PartState newState)
     {
         tutorialIcons.DisableIcons();
 
@@ -99,10 +99,12 @@ public class TrainPart : Interactable
                 break;
             case PartState.BURNING:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.EXTINGUISH);
+                heat = 1;
                 heatbarRenderer.color = new Color(1, 0, 0, 1);
                 break;
             case PartState.BROKEN:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.HAMMER);
+                health = 0;
                 heat = 0;
                 break;
         }

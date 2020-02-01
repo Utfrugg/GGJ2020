@@ -28,16 +28,16 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public virtual bool OnPickup()
+    public virtual Interactable OnPickup()
     {
         if (canPickup)
         {
             canTarget = false;
             canPickup = false;
 
-            return true;
+            return this;
         }
-        return false;
+        return null;
     }
 
     public virtual void OnDrop()
