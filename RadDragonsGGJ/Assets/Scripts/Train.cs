@@ -114,6 +114,7 @@ public class Train : MonoBehaviour
             Debug.LogError("There are no phases in the queue on start up");
         }
 
+        
         ProcessPhase(phases.Dequeue());
     }
 
@@ -134,7 +135,8 @@ public class Train : MonoBehaviour
 
     private void ProcessPhase(Phase phase)
     {
-        Debug.Log($"Processing phase. Duration: {phase.duration}");
+        phaseProgress++;
+        Debug.Log($"Processing phase {phaseProgress}");
         for (int i = 0; i < phase.numPartsBreaking; ++i)
         {
             int randomIndex = Random.Range(0, trainParts.Count - 1);
