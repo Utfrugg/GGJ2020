@@ -93,6 +93,8 @@ public class TrainPart : Interactable
         switch (newState)
         {
             case PartState.GOOD:
+                if (health < 1)
+                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.HAMMER);
                 break;
             case PartState.WARMINGUP:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.COOL);
@@ -103,7 +105,7 @@ public class TrainPart : Interactable
                 heatbarRenderer.color = new Color(1, 0, 0, 1);
                 break;
             case PartState.BROKEN:
-                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.HAMMER);
+                tutorialIcons.EnableIcons(TutorialIcons.TutorialState.DEPOSIT);
                 health = 0;
                 heat = 0;
                 break;
@@ -145,18 +147,25 @@ public class TrainPart : Interactable
             }
         }
 
-        if (itemUsed is Hammer && !holding && currentState != PartState.BURNING)
+        if (itemUsed is Hammer && !holding && currentState != PartState.BURNING && currentState != PartState.BROKEN)
         {
             health += HealthPerHammerHit;
-            
-            if (health > 1)
-            {
-                health = 1;
-                if (currentState == PartState.BROKEN)
-                    SwitchState(PartState.GOOD);
-            }
+            health = Mathf.Min(1, health);
+            if (health == 1 && currentState == PartState.GOOD)
+                tutorialIcons.DisableIcons();
+
         }
     }
 
 
+    public override void OnDrop(Interactable pickup)
+    {
+        if (pickup is RepairPart && currentState == PartState.BROKEN)
+        {
+            health = 0.1f;
+            heat = 0;
+            SwitchState(PartState.GOOD);
+            Destroy(pickup.gameObject);
+        }
+    }
 }
