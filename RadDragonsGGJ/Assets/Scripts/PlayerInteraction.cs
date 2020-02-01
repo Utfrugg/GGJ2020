@@ -13,6 +13,8 @@ public class PlayerInteraction : MonoBehaviour
     ContactFilter2D interactableFilter;
     public LayerMask layer;
 
+    public bool inputEnabled { get; set; } = true;
+
     void Start()
     {
        interactableFilter = new ContactFilter2D();
@@ -83,43 +85,49 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnInteractPress()
     {
-        if (target != null)
+        if (inputEnabled)
         {
-            var array = target.GetComponents<Interactable>();
-            
-            foreach (var comp in array)
+            if (target != null)
             {
-                Debug.Log(comp.GetType().Name);
-                comp.OnInteract(pickup);
+                var array = target.GetComponents<Interactable>();
+
+                foreach (var comp in array)
+                {
+                    Debug.Log(comp.GetType().Name);
+                    comp.OnInteract(pickup);
+                }
             }
-        }
 
-        if (pickup != null)
-        {
-            var array = pickup.GetComponents<Interactable>();
-
-            foreach (var comp in array)
+            if (pickup != null)
             {
-                Debug.Log(comp.GetType().Name);
-                comp.OnUse();
+                var array = pickup.GetComponents<Interactable>();
+
+                foreach (var comp in array)
+                {
+                    Debug.Log(comp.GetType().Name);
+                    comp.OnUse();
+                }
             }
         }
     }
 
     public void OnPickupPress()
     {
-        if (pickup != null)
+        if (inputEnabled)
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
-            pickup.OnDrop();
-            pickup = null;
-        }
-        else if (target != null)
-        {
-            if (target.OnPickup())
+            if (pickup != null)
             {
-                pickup = target;
-                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), true);
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
+                pickup.OnDrop();
+                pickup = null;
+            }
+            else if (target != null)
+            {
+                if (target.OnPickup())
+                {
+                    pickup = target;
+                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), true);
+                }
             }
         }
     }
