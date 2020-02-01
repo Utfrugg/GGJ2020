@@ -29,24 +29,18 @@ public class TrainPart : Interactable
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-
-
-
-
-
         switch (currentState)
         {
             case PartState.GOOD:
                 if (Random.Range(0, 500) == 0)
-                    currentState = PartState.WARMINGUP;
+                    SwitchState(PartState.WARMINGUP);
                 break;
             case PartState.WARMINGUP:
                 heat += 0.005f;
                 if (heat > 1)
                 {
                     heat = 1;
-                    currentState = PartState.BURNING;
+                    SwitchState(PartState.BURNING);
                 }
                 break;
             case PartState.BURNING:
@@ -54,7 +48,7 @@ public class TrainPart : Interactable
                 if (health < 0)
                 {
                     health = 0;
-                    currentState = PartState.BROKEN;
+                    SwitchState(PartState.BROKEN);
                 }
                 break;
             case PartState.BROKEN:
@@ -70,6 +64,28 @@ public class TrainPart : Interactable
         healthbar.SetSize(health);
     }
 
+    private void SwitchState(PartState newState)
+    {
+        if (currentState == PartState.BURNING)
+        heatbar.transform.Find("Bar").GetChild(0).GetComponent<SpriteRenderer>().color = Color.yellow;
+
+        switch (newState)
+        {
+            case PartState.GOOD:
+                break;
+            case PartState.WARMINGUP:
+                break;
+            case PartState.BURNING:
+                heatbar.transform.Find("Bar").GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
+                break;
+            case PartState.BROKEN:
+                    heat = 0;
+                break;
+        }
+        currentState = newState;
+
+    }
+
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
         if (itemUsed is Water && holding) {
@@ -83,7 +99,7 @@ public class TrainPart : Interactable
                     heat -= 0.05f;
                     if (heat < 0) {
                         heat = 0;
-                        currentState = PartState.GOOD;
+                        SwitchState(PartState.GOOD);
                     }
                     break;
             }
@@ -97,7 +113,7 @@ public class TrainPart : Interactable
                     if (heat < 0)
                     {
                         heat = 0;
-                        currentState = PartState.GOOD;
+                        SwitchState(PartState.GOOD);
                     }
                     break;
             }
@@ -111,8 +127,10 @@ public class TrainPart : Interactable
             {
                 health = 1;
                 if (currentState == PartState.BROKEN)
-                currentState = PartState.GOOD;
+                    SwitchState(PartState.GOOD);
             }
         }
     }
+
+
 }
