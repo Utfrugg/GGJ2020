@@ -119,6 +119,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
                 pickup.OnDrop();
+                target.OnDrop(pickup);
                 pickup = null;
             }
             else if (target != null)

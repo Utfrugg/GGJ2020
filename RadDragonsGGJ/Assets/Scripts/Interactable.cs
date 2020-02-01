@@ -40,7 +40,7 @@ public class Interactable : MonoBehaviour
         return null;
     }
 
-    public virtual void OnDrop()
+    public virtual void OnDrop(Interactable pickup = null)
     {
         canTarget = true;
         canPickup = true;
