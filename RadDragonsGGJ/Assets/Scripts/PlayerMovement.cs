@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private int playerNumber = 0;
 
     public float runSpeed = 20.0f;
-
+ 
     public bool canMove { get; set; } = true;
 
     // Start is called before the first frame update
