@@ -20,7 +20,7 @@ public class Water : Interactable
 
     public override void OnUse()
     {
-        Instantiate(splashPrefab, transform);
-        splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x, this.transform.forward.z) * 3.0f);
+        Instantiate(splashPrefab, transform.position + transform.up * 2.0f, transform.rotation);
+        //splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x, this.transform.forward.z) * 3.0f);
     }
 }

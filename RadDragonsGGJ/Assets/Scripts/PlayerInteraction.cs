@@ -53,6 +53,7 @@ public class PlayerInteraction : MonoBehaviour
         if (pickup != null)
         {
             pickup.transform.position = transform.position;
+            pickup.transform.rotation = transform.rotation;
         }
         
     }

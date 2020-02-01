@@ -31,5 +31,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("mlem");
             GetComponent<PlayerInteraction>().OnInteractPress();
         }
+
+        //Debug.DrawLine(transform.position, transform.position + transform.up, Color.red, 0.1f);
     }
 }
