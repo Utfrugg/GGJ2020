@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum PartState
+public enum PartState
 {
     GOOD,
+    WARMINGUP,
     OVERHEATED,
     BURNING,
     BROKEN
@@ -12,17 +13,28 @@ enum PartState
 
 public class TrainPart : Interactable
 {
-    private PartState currentState = PartState.GOOD;
+    public PartState currentState = PartState.GOOD;
 
-    public float heat = 0.0f;
-    public float health = 100.0f;
+    [SerializeField] private Healthbar healthbar;
+    [SerializeField] private Healthbar heatbar;
+
+    private float heat = 0.0f;
+    private float health = 1.0f;
+
+    void Start()
+    {
+        UpdateBars();
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         switch (currentState)
         {
             case PartState.GOOD:
+                break;
+            case PartState.WARMINGUP:
+                heat += 0.01f;
                 break;
             case PartState.OVERHEATED:
                 break;
@@ -31,6 +43,14 @@ public class TrainPart : Interactable
             case PartState.BROKEN:
                 break;
         }
+
+        UpdateBars();
+    }
+
+    private void UpdateBars()
+    {
+        heatbar.SetSize(heat);
+        healthbar.SetSize(health);
     }
 
     public override void OnInteract()
