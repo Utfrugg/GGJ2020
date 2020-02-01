@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     private bool isInteracting = false;
     public bool isHoldingButton = false;
     private Interactable target;
-    private Interactable pickup;
+    public Interactable pickup;
     ContactFilter2D interactableFilter;
     public LayerMask layer;
 
