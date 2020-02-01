@@ -69,6 +69,17 @@ public class PlayerInteraction : MonoBehaviour
                 comp.OnInteract();
             }
         }
+
+        if (pickup != null)
+        {
+            var array = pickup.GetComponents<Interactable>();
+
+            foreach (var comp in array)
+            {
+                Debug.Log(comp.GetType().Name);
+                comp.OnUse();
+            }
+        }
     }
 
     public void OnPickupPress()

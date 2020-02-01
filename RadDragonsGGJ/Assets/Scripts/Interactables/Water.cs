@@ -18,9 +18,9 @@ public class Water : Interactable
         
     }
 
-    public override void OnInteract()
+    public override void OnUse()
     {
         Instantiate(splashPrefab, transform);
-        splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x,this.transform.forward.z) * 3.0f);
+        splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x, this.transform.forward.z) * 3.0f);
     }
 }

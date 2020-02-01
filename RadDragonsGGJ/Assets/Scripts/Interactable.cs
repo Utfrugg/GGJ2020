@@ -22,6 +22,11 @@ public class Interactable : MonoBehaviour
 
     }
 
+    public virtual void OnUse()
+    {
+
+    }
+
     public bool OnPickup()
     {
         if (canPickup)
