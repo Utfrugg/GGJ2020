@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         List<Collider2D> foundInteractables = new List<Collider2D>();
         Physics2D.OverlapCircle(playerPos, interactionRange, interactableFilter, foundInteractables);
         if (target != null)
-            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            target.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         target = null;
         float shortestDistance = Mathf.Infinity;
 
@@ -48,7 +48,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (target != null)
         {
-            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            target.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         }
     }
 
