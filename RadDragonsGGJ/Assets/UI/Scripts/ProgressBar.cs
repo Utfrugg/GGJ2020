@@ -6,9 +6,9 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class ProgressBar : MonoBehaviour
 {
-    public int minimum;
-    public int maximum;
-    public int current;
+    public float minimum;
+    public float maximum;
+    public float current;
     public Image mask;
     public Image fill;
     public Color color;
@@ -33,5 +33,10 @@ public class ProgressBar : MonoBehaviour
         mask.fillAmount = fillAmount;
 
         mask.GetComponent<Image>().color = color;
+    }
+
+    public void SetPosition(Transform targetTransform)
+    {
+            transform.position = Camera.main.WorldToScreenPoint(targetTransform.position);
     }
 }

@@ -44,20 +44,20 @@ public class TutorialIcons : MonoBehaviour
             case TutorialState.COOL:
                 XIcon.SetActive(true);
                 WaterIcon.SetActive(true);
-                XIconFlash.sprite1Time = 0.5f;
-                XIconFlash.sprite2Time = 1.5f;
+                XIconFlash.sprite1Time = 0.3f;
+                XIconFlash.sprite2Time = 1.2f;
                 break;
             case TutorialState.EXTINGUISH:
                 XIcon.SetActive(true);
                 ExtinguisherIcon.SetActive(true);
-                XIconFlash.sprite1Time = 0.5f;
-                XIconFlash.sprite2Time = 1.5f;
+                XIconFlash.sprite1Time = 0.3f;
+                XIconFlash.sprite2Time = 1.2f;
                 break;
             case TutorialState.HAMMER:
                 XIcon.SetActive(true);
                 HammerIcon.SetActive(true);
-                XIconFlash.sprite1Time = 0.25f;
-                XIconFlash.sprite2Time = 0.25f;
+                XIconFlash.sprite1Time = 0.15f;
+                XIconFlash.sprite2Time = 0.15f;
                 break;
             case TutorialState.DEPOSIT:
                 AIcon.SetActive(true);

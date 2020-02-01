@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6928336936627151175}
   - component: {fileID: 6928336936627151169}
   - component: {fileID: 4017798724996012943}
+  - component: {fileID: 330015281561871777}
   m_Layer: 8
   m_Name: PU_Parts
   m_TagString: Untagged
@@ -151,3 +152,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &330015281561871777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928336936627151171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd813425a0fb08478aca79a37b1f962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canTarget: 1
+  canPickup: 1
