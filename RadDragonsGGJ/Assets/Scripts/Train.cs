@@ -32,6 +32,8 @@ public class Train : MonoBehaviour
     public List<Interactable> interactables;
     public List<TrainPart> trainParts;
 
+    [SerializeField] private int maxBrokenParts = 4;
+
     private Queue<Phase> phases = new Queue<Phase>();
     private IEnumerator processPhase;
     private int phaseProgress = 0;
@@ -68,6 +70,8 @@ public class Train : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckLose();
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (frozen)
@@ -110,6 +114,7 @@ public class Train : MonoBehaviour
             Debug.LogError("There are no phases in the queue on start up");
         }
 
+        
         ProcessPhase(phases.Dequeue());
     }
 
@@ -121,11 +126,17 @@ public class Train : MonoBehaviour
         {
             ProcessPhase(phases.Dequeue());
         }
+        else
+        {
+            Debug.Log("WIN!");
+            //TODO winscreen
+        }
     }
 
     private void ProcessPhase(Phase phase)
     {
-        Debug.Log($"Processing phase. Duration: {phase.duration}");
+        phaseProgress++;
+        Debug.Log($"Processing phase {phaseProgress}");
         for (int i = 0; i < phase.numPartsBreaking; ++i)
         {
             int randomIndex = Random.Range(0, trainParts.Count - 1);
@@ -153,6 +164,34 @@ public class Train : MonoBehaviour
             default:
                 Debug.Log("Part is broken already");
                 break;
+        }
+    }
+
+    public void CheckLose()
+    {
+        if (players[0].dead &&
+            players[1].dead &&
+            players[2].dead &&
+            players[3].dead)
+        {
+            Debug.Log("LOSE");
+            return;
+            //Show Lose Screens
+        }
+
+        int brokenparts = 0;
+        foreach (var part in trainParts)
+        {
+            if (part.currentState == PartState.BROKEN)
+            {
+                brokenparts++;
+            }
+        }
+
+        if (brokenparts >= maxBrokenParts)
+        {
+            Debug.Log("LOSE");
+            //Show Lose Screens
         }
     }
 }
