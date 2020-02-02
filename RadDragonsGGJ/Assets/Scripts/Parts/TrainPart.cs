@@ -26,6 +26,10 @@ public class TrainPart : Interactable
     public float TimeToDouse = 1.5f;
     public float HitsToRepair = 6f;
 
+    public ParticleSystem Smoke;
+    public ParticleSystem Fire;
+    public ParticleSystem Explode;
+
     private float BurnPerSecond;
     private float DamagePerSecond;
     private float DousePerSecond;
@@ -90,6 +94,10 @@ public class TrainPart : Interactable
     {
         tutorialIcons.DisableIcons();
 
+        Smoke.GetComponent<ParticleSystem>().Stop();
+        Fire.GetComponent<ParticleSystem>().Stop();
+        Explode.GetComponent<ParticleSystem>().Stop();
+
         switch (newState)
         {
             case PartState.GOOD:
@@ -98,16 +106,35 @@ public class TrainPart : Interactable
                 break;
             case PartState.WARMINGUP:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.COOL);
+                
+                //particles smoke
+                Smoke.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em1 = Smoke.GetComponent<ParticleSystem>().emission;
+                em1.enabled = true;
+
+
                 break;
             case PartState.BURNING:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.EXTINGUISH);
                 heat = 1;
                 heatbarRenderer.color = new Color(1, 0, 0, 1);
+
+                //particles fire
+                Fire.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em2 = Fire.GetComponent<ParticleSystem>().emission;
+                em2.enabled = true;
+
                 break;
             case PartState.BROKEN:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.DEPOSIT);
                 health = 0;
                 heat = 0;
+
+                //particles explosion
+                Explode.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em3 = Explode.GetComponent<ParticleSystem>().emission;
+                em3.enabled = true;
+
                 break;
         }
         currentState = newState;
