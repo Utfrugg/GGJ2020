@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
@@ -19,6 +20,12 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown("joystick button 7"))
         {
             paused = togglePause();
+
+            var button = pauseMenu.transform.Find("Menu");
+            if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(button.gameObject);
+            }
         }
 
     }

@@ -166,4 +166,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 0
-  splashPrefab: {fileID: 0}
+  splashPrefab: {fileID: 4777137615864905692, guid: 6b64cc4bfa05e444bb60260dc89086b5,
+    type: 3}

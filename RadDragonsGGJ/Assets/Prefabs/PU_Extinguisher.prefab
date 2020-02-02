@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4017798724996012943}
   - component: {fileID: 127977868695993767}
   m_Layer: 8
-  m_Name: Pickup_Extinguisher
+  m_Name: PU_Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,3 +166,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 1
+  splashPrefab: {fileID: 4777137615864905692, guid: 7133fe80e5b97a749bd6cbe6ba3d346c,
+    type: 3}
