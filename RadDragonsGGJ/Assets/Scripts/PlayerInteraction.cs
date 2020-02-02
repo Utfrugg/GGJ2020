@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public Interactable pickup;
     ContactFilter2D interactableFilter;
     public LayerMask layer;
+    [SerializeField] private float throwForce = 1000f;
 
     public bool inputEnabled { get; set; } = true;
 
@@ -148,7 +149,7 @@ public class PlayerInteraction : MonoBehaviour
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
                 pickup.OnDrop();
                 var dir = (Vector2)((Quaternion.Euler(0, 0, GetComponent<Rigidbody2D>().rotation) * Vector2.up));
-                pickup.GetComponent<Rigidbody2D>().AddForce(dir * 1000f);
+                pickup.GetComponent<Rigidbody2D>().AddForce(dir * throwForce);
                 
                 pickup = null;
             }
