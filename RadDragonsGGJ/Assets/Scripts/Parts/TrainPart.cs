@@ -134,7 +134,7 @@ public class TrainPart : Interactable
                 em3.enabled = true;
 
                 // Need to call shake behaviour in the camera, but can't get it to work. Reference?
-                //Camera.GetComponent ShakeBehaviour.shakeBehaviour();
+                Camera.main.GetComponent<ShakeBehaviour>().TriggerShake();
 
                 break;
         }

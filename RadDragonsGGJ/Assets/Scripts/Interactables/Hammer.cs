@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hammer : Interactable
 {
+    public ParticleSystem particles;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,12 @@ public class Hammer : Interactable
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
         Debug.Log("HAMMA");
+    }
+
+
+    public override void OnUse(bool holding)
+    {
+        if (!holding)
+        particles.Play();
     }
 }

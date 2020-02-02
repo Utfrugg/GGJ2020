@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Train : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class Train : MonoBehaviour
     private int numPlayers = 1;
     private bool frozen = false;
 
+    public float timeLeft;
+    
+
     void Awake()
     {
         if (instance != null && instance != this)
@@ -65,7 +69,7 @@ public class Train : MonoBehaviour
         phases.Enqueue(new Phase(1, 5));
         phases.Enqueue(new Phase(1, 6));
 
-
+        
         InitiatePhases();
     }
 
@@ -73,6 +77,9 @@ public class Train : MonoBehaviour
     void Update()
     {
         CheckLose();
+
+        timeLeft -= Time.deltaTime;
+        uiCanvas.transform.Find("Timer").gameObject.GetComponentInChildren<Text>().text = timeLeft.ToString("F2");
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -122,6 +129,7 @@ public class Train : MonoBehaviour
 
     private IEnumerator WaitForNextPhase(float duration)
     {
+        
         yield return new WaitForSeconds(duration);
 
         if (phases.Count != 0)
@@ -143,6 +151,8 @@ public class Train : MonoBehaviour
 
     private void ProcessPhase(Phase phase)
     {
+        timeLeft = phase.duration;
+
         phaseProgress++;
         Debug.Log($"Processing phase {phaseProgress}");
         for (int i = 0; i < phase.numPartsBreaking; ++i)

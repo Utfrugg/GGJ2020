@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public virtual void OnUse()
+    public virtual void OnUse(bool holding = false)
     {
 
     }
