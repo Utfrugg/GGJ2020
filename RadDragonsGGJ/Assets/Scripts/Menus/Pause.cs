@@ -54,7 +54,7 @@ public class Pause : MonoBehaviour
 
     public void Restart()
     {
-        paused = togglePause();
+        paused = false;
         SceneManager.LoadScene(1);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
@@ -62,7 +62,7 @@ public class Pause : MonoBehaviour
 
     public void BackToMenu()
     {
-        paused = togglePause();
+        paused = false;
         SceneManager.LoadScene(0);
     }
 }
