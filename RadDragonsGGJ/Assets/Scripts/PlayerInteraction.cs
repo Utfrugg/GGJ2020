@@ -144,4 +144,20 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
     }
+
+    public void OnThrow()
+    {
+        if (inputEnabled)
+        {
+            if (pickup != null)
+            {
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
+                pickup.OnDrop();
+                var dir = (Vector2)((Quaternion.Euler(0, 0, GetComponent<Rigidbody2D>().rotation) * Vector2.up));
+                pickup.GetComponent<Rigidbody2D>().AddForce(dir * 1000f);
+                
+                pickup = null;
+            }
+        }
+    }
 }
