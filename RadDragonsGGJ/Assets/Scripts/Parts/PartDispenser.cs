@@ -59,6 +59,7 @@ public class PartDispenser : Interactable
         if (partReady) {
             partIcon.SetActive(false);
             Interactable newPart = Instantiate(partPrefab, transform);
+            newPart.OnPickup();
             partReady = false;
             return newPart;
         }
