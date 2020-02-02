@@ -1139,6 +1139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bc6d0cf2fce4349a989d9dcc5addea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &389102622 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1205712758936295659, guid: 32b9b1754128de741bac0e649cbc3fdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205712758332916149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &389102623 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1205712758936295658, guid: 32b9b1754128de741bac0e649cbc3fdb,
@@ -4626,12 +4632,12 @@ PrefabInstance:
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.027586937
+      value: 0.15234777
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.9448261
+      value: 1.6953044
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
@@ -6058,22 +6064,22 @@ PrefabInstance:
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.01839137
+      value: 0.054261
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.4758468
+      value: 1.4041076
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.0045978725
+      value: 0.15106547
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534796, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.9908042
+      value: 1.6978691
       objectReference: {fileID: 0}
     - target: {fileID: 7211980803658534798, guid: b3d1738e710e32242ad868d16690a46d,
         type: 3}
@@ -7144,7 +7150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecf17d571a3b9c4f947512d53d59cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCanvas: {fileID: 0}
+  uiCanvas: {fileID: 389102622}
   players:
   - {fileID: 875200423}
   - {fileID: 1035590712}

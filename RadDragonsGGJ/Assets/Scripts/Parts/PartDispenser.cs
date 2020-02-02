@@ -20,7 +20,7 @@ public class PartDispenser : Interactable
     void Start()
     {
         ProgressWheel = Instantiate(ProgressWheelPrefab);
-        ProgressWheel.transform.SetParent(GameObject.Find("Canvas").transform);
+        ProgressWheel.transform.SetParent(GameObject.Find("UICanvas").transform);
         ProgressWheel.SetPosition(transform);
         ProgressWheel.transform.localScale = new Vector3(0.5f, 0.5f, 1);
         ProgressWheel.minimum = ProgressWheel.current = 0;
