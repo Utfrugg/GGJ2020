@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Train : MonoBehaviour
 {
@@ -130,7 +131,13 @@ public class Train : MonoBehaviour
         else
         {
             Debug.Log("WIN!");
-            uiCanvas.transform.Find("WinScreen").gameObject.SetActive(true);
+            var screen = uiCanvas.transform.Find("WinScreen").gameObject;
+            screen.SetActive(true);
+            var button = screen.transform.Find("Menu");
+            if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(button.gameObject);
+            }
         }
     }
 
@@ -176,8 +183,14 @@ public class Train : MonoBehaviour
             players[3].dead)
         {
             Debug.Log("LOSE");
-            uiCanvas.transform.Find("LoseScreen").gameObject.SetActive(true);
-            
+            var screen = uiCanvas.transform.Find("LoseScreen").gameObject;
+            screen.SetActive(true);
+            var button = screen.transform.Find("Menu");
+            if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(button.gameObject);
+            }
+
             return;
             
         }
@@ -194,7 +207,13 @@ public class Train : MonoBehaviour
         if (brokenparts >= maxBrokenParts)
         {
             Debug.Log("LOSE");
-            uiCanvas.transform.Find("LoseScreen").gameObject.SetActive(true);
+            var screen = uiCanvas.transform.Find("LoseScreen").gameObject;
+            screen.SetActive(true);
+            var button = screen.transform.Find("Menu");
+            if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(button.gameObject);
+            }
             //Show Lose Screens
         }
     }
