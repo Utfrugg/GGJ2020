@@ -17,8 +17,12 @@ public class PartDispenser : Interactable
 
     private float partProgress = 0f;
 
+
+    TutorialIcons tutorialIcons;
+
     void Start()
     {
+        tutorialIcons = GetComponent<TutorialIcons>();
         ProgressWheel = Instantiate(ProgressWheelPrefab);
         ProgressWheel.transform.SetParent(GameObject.Find("UICanvas").transform);
         ProgressWheel.SetPosition(transform);
@@ -47,6 +51,7 @@ public class PartDispenser : Interactable
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
         if (!partReady && !isGenerating && !holding) {
+            tutorialIcons.DisableIcons();
             ProgressWheel.gameObject.SetActive(true);
             ProgressWheel.current = 0;
             partProgress = 0;
@@ -57,8 +62,10 @@ public class PartDispenser : Interactable
     public override Interactable OnPickup()
     {
         if (partReady) {
+            tutorialIcons.EnableIcons(TutorialIcons.TutorialState.COOL);
             partIcon.SetActive(false);
             Interactable newPart = Instantiate(partPrefab, transform);
+            newPart.OnPickup();
             partReady = false;
             return newPart;
         }

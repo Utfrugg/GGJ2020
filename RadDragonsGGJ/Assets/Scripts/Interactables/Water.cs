@@ -4,29 +4,38 @@ using UnityEngine;
 
 public class Water : Interactable
 {
+    public float emitTimer = 0;
+    private IEnumerator emitCoroutine;
+    public ParticleSystem particles;
     public GameObject splashPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        OnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        emitTimer += Time.deltaTime;
+        if (emitTimer > 0.2f)
+        {
+            particles.Stop();
+        }
     }
 
-    public override void OnStart()
+    public override void OnInteract(Interactable itemUsed, bool holding)
     {
-        base.OnStart();
+
     }
 
-    public override void OnUse()
+    public override void OnUse(bool holding)
     {
-        GameObject Splash = Instantiate(splashPrefab, transform.position + transform.up * 1.0f, transform.rotation);
-        Splash.GetComponent<Rigidbody2D>().velocity = Quaternion.AngleAxis(Random.value * 60 - 30, transform.forward) * transform.up * 10;
-        //splashPrefab.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.forward.x, this.transform.forward.z) * 3.0f);
+        if (!particles.isPlaying)
+        {
+            particles.Play();
+        }
+        emitTimer = 0;
     }
+
 }
