@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extinguisher : Interactable
+public class Extinguisher : Pickup
 {
     public float emitTimer = 0;
     private IEnumerator emitCoroutine;
@@ -29,6 +29,7 @@ public class Extinguisher : Interactable
     }
 
     public override void OnUse(bool holding) {
+        base.OnUse(holding);
         if (!particles.isPlaying)
         {
             particles.Play();

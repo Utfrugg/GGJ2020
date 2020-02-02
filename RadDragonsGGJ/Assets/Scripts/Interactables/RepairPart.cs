@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairPart : Interactable
+public class RepairPart : Pickup
 {
     // Start is called before the first frame update
     void Start()

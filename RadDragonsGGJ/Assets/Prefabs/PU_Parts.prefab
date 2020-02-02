@@ -166,3 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 1
+  Durability: 1
+  DamagePerUse: 0
+  holdToUse: 0
+  broken: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water : Interactable
+public class Water : Pickup
 {
     public float emitTimer = 0;
     private IEnumerator emitCoroutine;
@@ -31,6 +31,7 @@ public class Water : Interactable
 
     public override void OnUse(bool holding)
     {
+        base.OnUse(holding);
         if (!particles.isPlaying)
         {
             particles.Play();
