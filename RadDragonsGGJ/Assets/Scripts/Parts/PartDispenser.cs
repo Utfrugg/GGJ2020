@@ -31,6 +31,10 @@ public class PartDispenser : Interactable
         ProgressWheel.maximum = 1;
         ProgressWheel.gameObject.SetActive(false);
         progressPerSecond = 1 / timeToGenerate;
+
+        partReady = true;
+        isGenerating = false;
+        partIcon.SetActive(true);
     }
 
     // Update is called once per frame
