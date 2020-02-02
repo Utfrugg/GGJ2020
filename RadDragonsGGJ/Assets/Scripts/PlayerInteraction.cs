@@ -108,15 +108,6 @@ public class PlayerInteraction : MonoBehaviour
                 foreach (var comp in array)
                 {
                     comp.OnUse();
-
-                    if (comp is RepairPart)
-                    {
-                        if (target is TrainPart)
-                        {
-                            target.OnDrop(comp);
-                            return;
-                        }
-                    }
                 }
             }
         }
@@ -129,8 +120,11 @@ public class PlayerInteraction : MonoBehaviour
             if (pickup != null)
             {
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), pickup.GetComponent<Collider2D>(), false);
+                if (target != null)
+                {
+                    target.OnDrop(pickup);
+                }
                 pickup.OnDrop();
-                //target.OnDrop(pickup);
                 pickup = null;
             }
             else if (target != null)

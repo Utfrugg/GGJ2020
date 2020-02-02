@@ -46,7 +46,7 @@ public class PartDispenser : Interactable
 
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
-        if (!partReady && !isGenerating) {
+        if (!partReady && !isGenerating && !holding) {
             ProgressWheel.gameObject.SetActive(true);
             ProgressWheel.current = 0;
             partProgress = 0;
