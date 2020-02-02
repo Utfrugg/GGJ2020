@@ -3470,6 +3470,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 389102623}
     m_Modifications:
+    - target: {fileID: 4168809081552537092, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0000038147
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809081552537092, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -163
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809081552537092, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 196.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809081552537092, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 36.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4168809081552537093, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3484,6 +3504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219683, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
@@ -3543,22 +3568,22 @@ PrefabInstance:
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000011444
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 110
+      value: 0.000018358
       objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 330.1
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 253.8
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219692, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
@@ -3589,6 +3614,59 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_Text
+      value: 'THE CREW SURVIVED.
+
+        YOU LIVE TO RIDE ANOTHER DAY.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 1e68d9120f59b3f44a0d99b11dd93eb6,
+        type: 3}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.85376716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.35292807
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168809082284219693, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7237a5c68a8dd40a92be4858a8c03d, type: 3}
@@ -3972,6 +4050,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 389102623}
     m_Modifications:
+    - target: {fileID: 2385712449371177140, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449371177140, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -207
+      objectReference: {fileID: 0}
     - target: {fileID: 2385712449371177143, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3981,6 +4069,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 1e68d9120f59b3f44a0d99b11dd93eb6,
+        type: 3}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.109024554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.15010591
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511272, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_Text
+      value: 'YOU FAILED TO KEEP THE TRAIN GOING. YOU ALL DIED HORRIBLE, PAINFUL
+        AND SLOW DEATHS.
+
+
+        TRY HARDER NEXT TIME!'
       objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
@@ -4040,22 +4163,22 @@ PrefabInstance:
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 173
+      value: 0.0024261
       objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.0000038147
       objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 330.1
+      value: 640.01
       objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 253.8
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
@@ -4091,6 +4214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoseScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385712449829511286, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233ec035ca422246a3463c1211aba64, type: 3}
