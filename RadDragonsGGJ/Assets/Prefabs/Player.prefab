@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8a2ff7a1b3d00469b618a6096d33c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
+  runSpeed: 3.5
 --- !u!114 &7164464576959730875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 2
   isHoldingButton: 0
+  pickup: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 256
@@ -182,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
+  oxygenLoss: 0.01
+  losingOxygen: 0
 --- !u!58 &7487645970386016076
 CircleCollider2D:
   m_ObjectHideFlags: 0
