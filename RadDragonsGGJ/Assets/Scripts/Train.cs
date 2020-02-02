@@ -67,13 +67,13 @@ public class Train : MonoBehaviour
         numPlayers = players.Count;
 
         phases.Enqueue(new Phase(0, 2, true));
-        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(4, 20, false));
         phases.Enqueue(new Phase(0, 2, true));
-        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(6, 20, false));
         phases.Enqueue(new Phase(0, 2, true));
-        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(8, 20, false));
         phases.Enqueue(new Phase(0, 2, true));
-        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(8, 20, false));
 
         
         InitiatePhases();
