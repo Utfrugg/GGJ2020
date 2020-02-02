@@ -42,7 +42,10 @@ public class Interactable : MonoBehaviour
 
     public virtual void OnDrop(Interactable pickup = null)
     {
-        canTarget = true;
-        canPickup = true;
+        if (pickup == null)
+        {
+            canTarget = true;
+            canPickup = true;
+        }
     }
 }
