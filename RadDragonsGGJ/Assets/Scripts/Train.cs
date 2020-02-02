@@ -13,11 +13,13 @@ public class Train : MonoBehaviour
         public uint numPartsBreaking;
         //public uint numEvents; //TODO implement events first
         public float duration;
+        public bool paused;
 
-        public Phase(uint parts, float dur)
+        public Phase(uint parts, float dur, bool p)
         {
             numPartsBreaking = parts;
             duration = dur;
+            paused = p;
         }
     }
 
@@ -64,10 +66,14 @@ public class Train : MonoBehaviour
     {
         numPlayers = players.Count;
 
-        phases.Enqueue(new Phase(1, 3));
-        phases.Enqueue(new Phase(1, 4));
-        phases.Enqueue(new Phase(1, 5));
-        phases.Enqueue(new Phase(1, 6));
+        phases.Enqueue(new Phase(0, 2, true));
+        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(0, 2, true));
+        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(0, 2, true));
+        phases.Enqueue(new Phase(1, 20, false));
+        phases.Enqueue(new Phase(0, 2, true));
+        phases.Enqueue(new Phase(1, 20, false));
 
         
         InitiatePhases();
@@ -132,6 +138,11 @@ public class Train : MonoBehaviour
         
         yield return new WaitForSeconds(duration);
 
+        if (frozen)
+        {
+            UnFreezeTime();
+        }
+
         if (phases.Count != 0)
         {
             ProcessPhase(phases.Dequeue());
@@ -152,6 +163,11 @@ public class Train : MonoBehaviour
     private void ProcessPhase(Phase phase)
     {
         timeLeft = phase.duration;
+
+        if (phase.paused)
+        {
+            FreezeTime();
+        }
 
         phaseProgress++;
         Debug.Log($"Processing phase {phaseProgress}");
