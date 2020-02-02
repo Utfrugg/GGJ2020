@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D body;
+    public Rigidbody2D body;
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
     private int playerNumber = 0;

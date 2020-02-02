@@ -3470,6 +3470,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 389102623}
     m_Modifications:
+    - target: {fileID: 4168809081552537093, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389102620}
+    - target: {fileID: 4168809081552537093, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4168809082284219683, guid: 4b7237a5c68a8dd40a92be4858a8c03d,
         type: 3}
       propertyPath: m_Name
@@ -3962,6 +3972,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 389102623}
     m_Modifications:
+    - target: {fileID: 2385712449371177143, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389102620}
+    - target: {fileID: 2385712449371177143, guid: 5233ec035ca422246a3463c1211aba64,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2385712449829511273, guid: 5233ec035ca422246a3463c1211aba64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8630,6 +8650,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 389102623}
     m_Modifications:
+    - target: {fileID: 176931297203845157, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389102620}
+    - target: {fileID: 176931297203845157, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 176931297360766668, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389102620}
+    - target: {fileID: 176931297360766668, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 176931297614142566, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389102620}
+    - target: {fileID: 176931297614142566, guid: 3fc0b9c5146215743a730282b4e3671c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 176931297891344830, guid: 3fc0b9c5146215743a730282b4e3671c,
         type: 3}
       propertyPath: m_Name

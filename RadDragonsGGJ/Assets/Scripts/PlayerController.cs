@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour
             {
                 GetComponent<PlayerInteraction>().isHoldingButton = false;
             }
+
+            if (Input.GetKeyDown("joystick " + PlayerNumber + " button 3"))
+            {
+                GetComponent<PlayerInteraction>().OnThrow();
+            }
         }
         
         //Debug.DrawLine(transform.position, transform.position + transform.up, Color.red, 0.1f);
