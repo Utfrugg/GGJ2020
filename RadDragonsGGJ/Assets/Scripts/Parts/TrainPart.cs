@@ -57,8 +57,6 @@ public class TrainPart : Interactable
         switch (currentState)
         {
             case PartState.GOOD:
-                if (Random.Range(0, 500) == 0)
-                    SwitchState(PartState.WARMINGUP);
                 break;
             case PartState.WARMINGUP:
                 heat += BurnPerSecond * Time.deltaTime;
