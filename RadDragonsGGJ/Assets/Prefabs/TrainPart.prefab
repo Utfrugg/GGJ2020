@@ -1495,8 +1495,8 @@ MonoBehaviour:
   canTarget: 1
   canPickup: 0
   currentState: 0
-  healthbar: {fileID: 2481296205721526650}
-  heatbar: {fileID: 2481296205721526650}
+  healthbar: {fileID: 5507018479808686776}
+  heatbar: {fileID: 3579336647451689080}
   TimeToBurn: 15
   TimeToBreak: 10
   TimeToDouse: 3
@@ -1574,7 +1574,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7763477112339990727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.3877788e-17}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6005295711378789404}
@@ -1582,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000000059604645}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &166300507589362000

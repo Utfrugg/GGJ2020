@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PartState
 {
@@ -14,9 +15,8 @@ public class TrainPart : Interactable
 {
     public PartState currentState = PartState.GOOD;
 
-    [SerializeField] private Healthbar healthbar;
-    [SerializeField] private Healthbar heatbar;
-    private SpriteRenderer heatbarRenderer;
+    [SerializeField] private Image healthbar;
+    [SerializeField] private Image heatbar;
 
     private float heat = 0.0f;
     private float health = 1.0f;
@@ -46,8 +46,6 @@ public class TrainPart : Interactable
         DamagePerSecond = 1.0f / TimeToBreak;
         DousePerSecond = 1.0f / TimeToDouse + BurnPerSecond;
         HealthPerHammerHit = 1.0f / HitsToRepair;
-
-        heatbarRenderer = heatbar.transform.Find("Bar").GetChild(0).GetComponent<SpriteRenderer>();
 }
 
     // Update is called once per frame
@@ -62,7 +60,6 @@ public class TrainPart : Interactable
                 break;
             case PartState.WARMINGUP:
                 heat += BurnPerSecond * Time.deltaTime;
-                heatbarRenderer.color = new Color(1, 1f - heat * 0.5f, 0, 1);
                 if (heat > 1)
                 {
                     heat = 1;
@@ -86,8 +83,8 @@ public class TrainPart : Interactable
 
     private void UpdateBars()
     {
-        heatbar.SetSize(heat);
-        healthbar.SetSize(health);
+        heatbar.fillAmount = heat;
+        healthbar.fillAmount = health;
     }
 
     public void SwitchState(PartState newState)
@@ -117,7 +114,6 @@ public class TrainPart : Interactable
             case PartState.BURNING:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.EXTINGUISH);
                 heat = 1;
-                heatbarRenderer.color = new Color(1, 0, 0, 1);
 
                 //particles fire
                 Fire.GetComponent<ParticleSystem>().Play();
