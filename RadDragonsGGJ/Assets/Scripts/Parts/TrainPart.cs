@@ -30,6 +30,8 @@ public class TrainPart : Interactable
     public ParticleSystem Fire;
     public ParticleSystem Explode;
 
+    //public Camera cameraShake;
+
     private float BurnPerSecond;
     private float DamagePerSecond;
     private float DousePerSecond;
@@ -130,6 +132,9 @@ public class TrainPart : Interactable
                 Explode.GetComponent<ParticleSystem>().Play();
                 ParticleSystem.EmissionModule em3 = Explode.GetComponent<ParticleSystem>().emission;
                 em3.enabled = true;
+
+                // Need to call shake behaviour in the camera, but can't get it to work. Reference?
+                //Camera.GetComponent ShakeBehaviour.shakeBehaviour();
 
                 break;
         }
