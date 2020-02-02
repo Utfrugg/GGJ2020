@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PartState
 {
@@ -14,9 +15,8 @@ public class TrainPart : Interactable
 {
     public PartState currentState = PartState.GOOD;
 
-    [SerializeField] private Healthbar healthbar;
-    [SerializeField] private Healthbar heatbar;
-    private SpriteRenderer heatbarRenderer;
+    [SerializeField] private Image healthbar;
+    [SerializeField] private Image heatbar;
 
     private float heat = 0.0f;
     private float health = 1.0f;
@@ -25,6 +25,10 @@ public class TrainPart : Interactable
     public float TimeToBreak = 3f;
     public float TimeToDouse = 1.5f;
     public float HitsToRepair = 6f;
+
+    public ParticleSystem Smoke;
+    public ParticleSystem Fire;
+    public ParticleSystem Explode;
 
     private float BurnPerSecond;
     private float DamagePerSecond;
@@ -42,8 +46,6 @@ public class TrainPart : Interactable
         DamagePerSecond = 1.0f / TimeToBreak;
         DousePerSecond = 1.0f / TimeToDouse + BurnPerSecond;
         HealthPerHammerHit = 1.0f / HitsToRepair;
-
-        heatbarRenderer = heatbar.transform.Find("Bar").GetChild(0).GetComponent<SpriteRenderer>();
 }
 
     // Update is called once per frame
@@ -58,7 +60,6 @@ public class TrainPart : Interactable
                 break;
             case PartState.WARMINGUP:
                 heat += BurnPerSecond * Time.deltaTime;
-                heatbarRenderer.color = new Color(1, 1f - heat * 0.5f, 0, 1);
                 if (heat > 1)
                 {
                     heat = 1;
@@ -82,13 +83,17 @@ public class TrainPart : Interactable
 
     private void UpdateBars()
     {
-        heatbar.SetSize(heat);
-        healthbar.SetSize(health);
+        heatbar.fillAmount = heat;
+        healthbar.fillAmount = health;
     }
 
     public void SwitchState(PartState newState)
     {
         tutorialIcons.DisableIcons();
+
+        Smoke.GetComponent<ParticleSystem>().Stop();
+        Fire.GetComponent<ParticleSystem>().Stop();
+        Explode.GetComponent<ParticleSystem>().Stop();
 
         switch (newState)
         {
@@ -98,16 +103,34 @@ public class TrainPart : Interactable
                 break;
             case PartState.WARMINGUP:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.COOL);
+                
+                //particles smoke
+                Smoke.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em1 = Smoke.GetComponent<ParticleSystem>().emission;
+                em1.enabled = true;
+
+
                 break;
             case PartState.BURNING:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.EXTINGUISH);
                 heat = 1;
-                heatbarRenderer.color = new Color(1, 0, 0, 1);
+
+                //particles fire
+                Fire.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em2 = Fire.GetComponent<ParticleSystem>().emission;
+                em2.enabled = true;
+
                 break;
             case PartState.BROKEN:
                 tutorialIcons.EnableIcons(TutorialIcons.TutorialState.DEPOSIT);
                 health = 0;
                 heat = 0;
+
+                //particles explosion
+                Explode.GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em3 = Explode.GetComponent<ParticleSystem>().emission;
+                em3.enabled = true;
+
                 break;
         }
         currentState = newState;
