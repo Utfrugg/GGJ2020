@@ -107,8 +107,16 @@ public class PlayerInteraction : MonoBehaviour
 
                 foreach (var comp in array)
                 {
-                    Debug.Log(comp.GetType().Name);
                     comp.OnUse();
+
+                    if (comp is RepairPart)
+                    {
+                        if (target is TrainPart)
+                        {
+                            target.OnDrop(comp);
+                            return;
+                        }
+                    }
                 }
             }
         }

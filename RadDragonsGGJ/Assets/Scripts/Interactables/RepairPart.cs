@@ -18,6 +18,6 @@ public class RepairPart : Interactable
 
     public override void OnInteract(Interactable itemUsed, bool holding)
     {
-        Debug.Log("Reapir");
+        
     }
 }
