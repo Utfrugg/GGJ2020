@@ -70,18 +70,23 @@ public class PlayerInteraction : MonoBehaviour
 
             foreach (var comp in array)
             {
-                comp.OnInteract(pickup, true);
+                if (pickup != null) {
+                    comp.OnInteract((pickup.GetComponent<Pickup>().broken) ? null : pickup, true);
+                } else {
+                    comp.OnInteract(pickup, true);
+                }
+
             }
         }
 
         if (pickup != null && isHoldingButton)
         {
-            var array = pickup.GetComponents<Interactable>();
+            var array = pickup.GetComponents<Pickup>();
 
             foreach (var comp in array)
             {
-                Debug.Log(comp.GetType().Name);
-                comp.OnUse();
+                if (!comp.broken)
+                comp.OnUse(isHoldingButton);
             }
         }
 
@@ -98,17 +103,25 @@ public class PlayerInteraction : MonoBehaviour
                 foreach (var comp in array)
                 {
                     Debug.Log(comp.GetType().Name);
-                    comp.OnInteract(pickup);
+                    if (pickup != null)
+                    {
+                        comp.OnInteract((pickup.GetComponent<Pickup>().broken) ? null : pickup);
+                    }
+                    else
+                    {
+                        comp.OnInteract(pickup);
+                    }
                 }
             }
 
             if (pickup != null)
             {
-                var array = pickup.GetComponents<Interactable>();
+                var array = pickup.GetComponents<Pickup>();
 
                 foreach (var comp in array)
                 {
-                    comp.OnUse();
+                    if (!comp.broken)
+                    comp.OnUse(isHoldingButton);
                 }
             }
         }

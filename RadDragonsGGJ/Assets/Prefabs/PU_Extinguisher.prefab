@@ -167,6 +167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 1
+  Durability: 1
+  DamagePerUse: 0.2
+  holdToUse: 1
+  broken: 0
   emitTimer: 0
   particles: {fileID: 8583052925013975535}
   splashPrefab: {fileID: 4777137615864905692, guid: 7133fe80e5b97a749bd6cbe6ba3d346c,
@@ -202,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.arc.value
       value: 23.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178377545423981763, guid: 8712bc897e3cdca48b28045a63e9e929,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8520075167171273506, guid: 8712bc897e3cdca48b28045a63e9e929,
         type: 3}

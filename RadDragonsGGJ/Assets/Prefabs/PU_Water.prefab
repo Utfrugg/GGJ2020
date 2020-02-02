@@ -167,6 +167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTarget: 1
   canPickup: 1
+  Durability: 1
+  DamagePerUse: 0.2
+  holdToUse: 1
+  broken: 0
   emitTimer: 0
   particles: {fileID: 4228675884476869156}
   splashPrefab: {fileID: 4777137615864905692, guid: 6b64cc4bfa05e444bb60260dc89086b5,

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hammer : Interactable
+public class Hammer : Pickup
 {
     public ParticleSystem particles;
     // Start is called before the first frame update
@@ -25,6 +25,8 @@ public class Hammer : Interactable
 
     public override void OnUse(bool holding)
     {
+        base.OnUse(holding);
+
         if (!holding)
         particles.Play();
     }
